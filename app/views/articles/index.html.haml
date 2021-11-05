@@ -3,4 +3,6 @@
 	.field
 		%h2= f.headline
 		%p= f.content
+		- f.tags.each do |k|
+			= k.tag_body
 		= link_to "Show", article_path(f), class: 'btn btn-success'
