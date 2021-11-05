@@ -6,4 +6,10 @@
   .field.mt-3
     = f.label :content, class: 'form-check-label'
     = f.rich_text_area :content, class: 'form-control'
+  .field.mt-3
+    = f.fields_for :tags do |tag|
+      = tag.label :tag_body, class: 'form-check-label'
+      = tag.text_field :tag_body, class: 'form-control'
+
+
   = f.submit class: 'form-control btn btn-success mt-3'

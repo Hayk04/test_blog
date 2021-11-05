@@ -2,4 +2,7 @@
 .field
 	%h1.mb-5= @article.headline
 	%p= @article.content
+	%br
+	- @article.tags.each do |f|
+		= f.tag_body
 
