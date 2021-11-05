@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to article_path(@article)      
     else  
-      redirect_to articles_path
+      render 'new'
     end
   end
 
@@ -31,8 +31,11 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article.destroy
-    redirect_to articles_path
+    if @article.destroy
+      redirect_to articles_path
+    else  
+      render 'show'
+    end  
   end
 
   def find_article
