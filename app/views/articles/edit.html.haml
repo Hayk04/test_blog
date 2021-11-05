@@ -1,2 +1,15 @@
-%h1 Articles#edit
-%p Find me in app/views/articles/edit.html.erb
+= link_to 'Back', article_path(@article), class: 'btn btn-info'
+= form_for @article do |f|
+  .field.mt-3
+    = f.label :headline, class: 'form-check-label'
+    = f.text_field :headline, class: 'form-control'
+  .field.mt-3
+    = f.label :content, class: 'form-check-label'
+    = f.rich_text_area :content, class: 'form-control'
+  .field.mt-3
+    = f.fields_for :tags do |tag|
+      = tag.label :tag_body, class: 'form-check-label'
+      = tag.text_field :tag_body, class: 'form-control'
+
+
+  = f.submit class: 'form-control btn btn-success mt-3'
