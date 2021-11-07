@@ -13,8 +13,9 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      redirect_to article_path(@article)      
-    else  
+      redirect_to article_path(@article), notice: "You create #{@article.headline} Article"  
+    else
+      flash.now[:notice] = 'Form is not valid'
       render 'new'
     end
   end
@@ -27,12 +28,12 @@ class ArticlesController < ApplicationController
 
   def update
     @article.update(article_params)
-    redirect_to article_path(@article)
+    redirect_to article_path(@article), notice: "You update '#{@article.headline}' Article"
   end
 
   def destroy
     if @article.destroy
-      redirect_to articles_path
+      redirect_to articles_path, notice: "You delete '#{@article.headline}' Article"
     else  
       render 'show'
     end  
