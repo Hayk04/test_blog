@@ -1,4 +1,4 @@
-= link_to 'New Article', new_article_path, class: 'btn btn-success mb-3'
+= link_to 'New Article', new_article_path, class: 'btn btn-info mb-3'
 - @articles.each do |f|
 	.field
 		%h2= f.headline
@@ -6,3 +6,4 @@
 		- f.tags.each do |k|
 			%p= k.tag_body
 		= link_to "Show", article_path(f), class: 'btn btn-success'
+	%hr
