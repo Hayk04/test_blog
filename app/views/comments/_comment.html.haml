@@ -1,0 +1,5 @@
+- unless !comment.persisted?
+	.card
+		.card-body
+			%p= comment.content
+			%small by #{comment.user.email}

@@ -13,6 +13,8 @@
           %a.nav-link.disabled{"aria-disabled" => "true", :href => "#", :tabindex => "-1"} Disabled
       %ul.navbar-nav
         - if current_user
+          %p.nav-link
+            = current_user.email
           %li.nav-item
             = link_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-success'
         - else
