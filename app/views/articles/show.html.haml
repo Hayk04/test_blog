@@ -8,6 +8,10 @@
 	%p.text-decoration-underline Tags
 	- @article.tags.each do |f|
 		= f.tag_body
-= link_to "Edit", edit_article_path(@article), class: 'btn btn-warning mb-3'
+= link_to "Edit", edit_article_path(@article), class: 'btn btn-warning my-3'
 = button_to "Delete", article_path(@article), method: :delete, :data => {:confirm => 'Are you sure?'}, class: 'btn btn-danger'
+%br
+%h3 Comments
+= render @article.comments
+= render 'comments/form', locals: { post: @post }
 
